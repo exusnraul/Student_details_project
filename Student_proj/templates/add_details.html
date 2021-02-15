@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<div class="jumbotron container">
+
+        <h1> Add Student Details Below </h1>
+
+        
+         </h1>
+
+         <form method="post">
+            {% csrf_token %}
+
+            {{ form.as_table}}
+
+            <input type="submit" class='btn btn-primary' value="Submit">
+
+         </form>
+
+ 
+</div>
+{% endblock body_block %}

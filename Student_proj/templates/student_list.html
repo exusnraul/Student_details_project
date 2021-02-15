@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<link rel="stylesheet" href="{% static 'css/student_list.css' %}">
+<div class='custom'>
+
+        <h1> Here is the Student List </h1>
+ <table>
+        <thead>
+            <th><h5>Name</h5></th>
+            <th><h5>age</h5></th>
+            <th><h5>Message</h5></th>
+            <th><h5>Delete</h5></th>
+            <th><h5>Edit</h5></th>
+        </thead>
+        
+        {% for students in student_list_view  %}
+        
+        <tr>
+            <td>{{ students.name}}</td>
+            <td> {{ students.age}}</td>
+            <td> {{ students.message}}</td>
+            <td><a class='btn btn-danger' href='{% url 'student_app:student_delete' pk=students.id%}'> Delete </a</td>
+            <td> <a class='btn btn-primary' href='{% url 'student_app:student_edit' pk=students.id %}'> Edit</a></td>
+
+            
+            </tr>
+        {% endfor %}
+        </table>
+</div>
+{% endblock body_block %}
